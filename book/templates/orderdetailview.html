@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col-2"></div>
+    <div class="col-8">
+    <div class="card" style="width: 100%;">
+  <img src="{{order.item.image.url}}" class="card-img-top" height="400px;"width="400px;" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{order.item.book_name}}</h5>
+
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">{{order.user}}</li>
+    <li class="list-group-item">{{order.status}}</li>
+    <li class="list-group-item">{{order.date_order}}</li>
+  </ul>
+
+</div>
+    </div>
+    <div class="col-2"></div>
+  </div>
+</div>
+</body>
+</html>

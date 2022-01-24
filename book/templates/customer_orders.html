@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF"
+      crossorigin="anonymous">
+    <link rel="stylesheet" href="{%static 'css/style.css'%}">
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingOne">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+        Accordion Item #{{neworder_count}}
+      </button>
+    </h2>
+    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+         data-bs-parent="#accordionFlushExample">
+       <table class="table">
+              <tr>
+                  <th>Item</th>
+                  <th>Date</th>
+                  <th>User</th>
+                  <th>Status</th>
+                  <th > Action</th>
+
+              </tr>
+              {%for order in neworders%}
+              <tr>
+                  <td>{{order.item.book_name}}</td>
+                  <td>{{order.date_order}}</td>
+                  <td>{{order.user}}</td>
+                  <td>{{order.status}}</td>
+                  <td><a href="{%url 'orderdetails' order.id%}" class="btn btn-info">View</a></td>
+                  <td><a href="{%url 'orderchange' order.id%}" class="btn btn-info">Update</a></td>
+
+
+              </tr>
+
+
+
+              {%endfor%}
+          </table>
+
+        </div>
+
+            </div>
+        <div class="col-6">
+            <h1>hh</h1>
+        </div>
+    </div>
+
+
+</div>
+</body>
+</html>

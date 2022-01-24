@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{%extends 'base.html'%}
+
+{%block body_block%}
+{%for book in items%}
+<div class="row">
+    <div class="col-6">
+<div class="card" style="width: 18rem;">
+  <img src="{{book.item.image.url}}" class="card-img-top" alt="...">
+  <div class="card-body">
+
+  </div>
+</div>
+    </div>
+    <div class="col-6">
+<div class="card" style="width: 18rem;">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">{{book.item}}</li>
+    <li class="list-group-item">{{book.item.price}}</li>
+    <li class="list-group-item">{{book.status}}</li>
+      <li><a href="{%url 'removeitem' book.id%}" class="btn btn-primary">RemoveFromCart</a></li>
+      <li><a href="{%url 'createorder' book.id%}" class="btn btn-primary">BuyNow</a></li>
+
+  </ul>
+
+</div>
+    </div>
+</div>
+
+{%endfor%}
+<tr>
+    <th></th>
+    <th>Total Cost{{total}}</th>
+    <th><a href="" class="btn btn-warning"></a>BUY ALL</th>
+</tr>
+{%endblock%}
